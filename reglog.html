@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bdy">
+      <div class="container">
+        <div class="form-container" id="register">
+          <h2>Create an account</h2>
+          <form id="registerForm">
+            <label>Username</label>
+            <input type="text" placeholder="username" required />
+            <label>Email</label>
+            <input type="email" placeholder="email" required />
+            <label>Password</label>
+            <input type="password" required />
+            <label>Confirm Password</label>
+            <input type="password" required />
+            <button type="submit">Create Account</button>
+          </form>
+          <p>
+            Already have an account?
+            <a href="#" onclick="toggleForm()">Sign In</a>
+          </p>
+        </div>
+        <div class="form-container hidden" id="login">
+          <h2>Welcome back</h2>
+          <form id="loginForm">
+            <label>Email</label>
+            <input type="email" placeholder="email" required />
+            <label>Password</label>
+            <input type="password" required />
+            <button type="submit">Sign In</button>
+          </form>
+          <p>
+            Don't have an account?
+            <a href="#" onclick="toggleForm()">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleForm() {
+        document.getElementById("register").classList.toggle("hidden");
+        document.getElementById("login").classList.toggle("hidden");
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("loginForm");
+
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          window.location.href = "index.html";
+        });
+      });
+    </script>
+  </body>
+</html>
